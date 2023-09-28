@@ -47,7 +47,18 @@ namespace csi281 {
     // http://www.cplusplus.com/reference/algorithm/inplace_merge/
     template <typename T>
     void mergeSort(T array[], const int start, const int end) {
-        // YOUR CODE HERE
+        int mid = end / 2;
+        int length = mid - start + 1;
+
+        // Base Case
+        if (length < 2)
+            return;
+        
+        // Recursive Case
+        mergeSort(array, start, mid);   // First Half
+        mergeSort(array, mid, end);     // Second Half
+
+        std::inplace_merge(array, array + mid, array + end);
     }
     
     // setup random number generator
@@ -70,6 +81,7 @@ namespace csi281 {
     template <typename T>
     void quickSort(T array[], const int start, const int end) {
         // YOUR CODE HERE
+
     }
     
     // Performs an in-place ascending sort of *array*
@@ -84,9 +96,11 @@ namespace csi281 {
     // as described below
     // NOTE: You will need to modify the implementation to only
     // sort part of the array as per the parameters of this version
+    // Not recursive
     template <typename T>
     void insertionSort(T array[], const int start, const int end) {
         // YOUR CODE HERE
+        // 
     }
     
     // Performs an in-place ascending sort of *array*
@@ -100,6 +114,8 @@ namespace csi281 {
     template <typename T>
     void hybridSort(T array[], const int start, const int end) {
         // YOUR CODE HERE
+        // Base Case : Less than ten elements, call insertion sort
+        // Recursive Case : Copy merge sort
     }
     
     

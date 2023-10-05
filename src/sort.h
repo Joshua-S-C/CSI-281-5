@@ -48,7 +48,6 @@ namespace csi281 {
     template <typename T>
     void mergeSort(T array[], const int start, const int end) {
         int mid = (start + end) / 2;
-        //int mid = start + (end - start) / 2;
         int length = end - start;
 
         // Base Case
@@ -58,7 +57,6 @@ namespace csi281 {
         // Recursive Case
         mergeSort(array, start, mid);   // First Half
         mergeSort(array, mid+1, end);   // Second Half
-
         std::inplace_merge(array+start, array + mid+1, array + end+1);
     }
     

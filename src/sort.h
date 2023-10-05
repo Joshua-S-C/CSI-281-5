@@ -47,18 +47,19 @@ namespace csi281 {
     // http://www.cplusplus.com/reference/algorithm/inplace_merge/
     template <typename T>
     void mergeSort(T array[], const int start, const int end) {
-        int mid = end / 2;
-        int length = mid - start + 1;
+        int mid = (start + end) / 2;
+        //int mid = start + (end - start) / 2;
+        int length = end - start;
 
         // Base Case
-        if (length < 2)
+        if (length < 1)
             return;
         
         // Recursive Case
         mergeSort(array, start, mid);   // First Half
-        mergeSort(array, mid, end);     // Second Half
+        mergeSort(array, mid+1, end);   // Second Half
 
-        std::inplace_merge(array, array + mid, array + end);
+        std::inplace_merge(array+start, array + mid+1, array + end+1);
     }
     
     // setup random number generator
